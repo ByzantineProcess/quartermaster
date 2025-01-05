@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         'base': '#3a0e6f',
         'black': '#000000',
+        'some-accent': '#21a86b'
       },
     },
   },

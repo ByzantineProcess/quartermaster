@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Pirata+One&display=swap" rel="stylesheet">
     <script src="showtime/showtime.js"></script>
     <script src="devtools/devtools.js"></script>
+    <script src="index.js"></script>
     <link rel="stylesheet" href="tw.css">
 </head>
 <body class="h-screen m-0 bg-gradient-to-tr from-base to-black">
@@ -40,9 +41,12 @@
                 
             </div>
             <div class="w-1/2 bg-purple-800 rounded-lg p-4">
-                <div class="flex flex-row items-center">
+                <div class="flex flex-row items-center w-full">
                     <h3 class="text-xl">Focus Timer (1 hr)</h3>
-
+                    <div class="justify-end">
+                        <button class="bg-some-accent rounded p-1.5 ml-2 hover:underline" onclick="pywebview.api.focusTime()">Start</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>
