@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quartermaster SPA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Pirata+One&display=swap" rel="stylesheet">
+    <script src="showtime/showtime.js"></script>
+    <script src="devtools/devtools.js"></script>
+    <link rel="stylesheet" href="tw.css">
+</head>
+<body class="h-screen m-0 bg-gradient-to-tr from-base to-black">
+    <div class="text-white lexend-reg z-0">
+        <div class="flex flex-row p-2 justify-between items-center pywebview-drag-region">
+            <div class="-mt-1">
+                <h1 class="text-2xl p-2">Quartermaster</h1>
+                <h1 class="text-xs pl-40 -mt-4" id="vertag">⛵</h1>
+            </div>
+            <div class="flex-grow text-center">
+                <span class="text-xl text-gray-300" id="bannerText"></span>
+            </div>
+            <div class="flex items-center">
+                <button class="text-white bg-palette-dark-aqua rounded -mr-2 mb-1 hover:underline" onclick="pywebview.api.minimize()">_</button>
+                <button class="text-white ml-4 bg-palette-dark-aqua rounded p-1.5 hover:underline" onclick="pywebview.api.close()">X</button>
+            </div>
+        </div>
+        <div class="w-full h-0.5 bg-white -mt-1"></div>
+    </div>
+    <div class="absolute w-screen flex flex-col bottom-0 text-white lexend-reg h-screen pt-24 pointer-events-none"> <!-- I HATE CSS -->
+        <div class="flex flex-row items-center pl-4 -mt-4 text-4xl">
+            <div class="justify-between">
+                <h2>Good afternoon, User.</h2>
+            </div>
+            
+        </div>
+        <div class="flex justify-between space-x-4 rounded-lg p-4 h-full flex-grow pointer-events-auto">
+            <div class="w-1/2 bg-purple-700 rounded-lg p-4">
+                
+            </div>
+            <div class="w-1/2 bg-purple-800 rounded-lg p-4">
+                <div class="flex flex-row items-center">
+                    <h3 class="text-xl">Focus Timer (1 hr)</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
