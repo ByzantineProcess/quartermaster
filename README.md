@@ -15,4 +15,11 @@ High Seas helper desktop client
 - Tailwind
 - pywebview (as GUI lib/helper)
 
+## Running locally
+**Windows users: check releases section**
+
+Otherwise, ensure your python env of choice has `requests pywebview notifypy iniconfig` installed, then just run main.py
+
+Linux users: pywebview may need some extra packages related to Qt, check [the docs](https://pywebview.flowrl.com/guide/installation.html#linux) for instructions
+
 Enjoy!
