@@ -40,12 +40,21 @@
         </div>
         <div class="flex justify-between space-x-4 rounded-lg p-4 h-full flex-grow pointer-events-auto">
             <div class="w-1/2 bg-purple-700 rounded-lg p-4">
-                
+                <div class="flex flex-row items-center w-full justify-center">
+                    <h1 class="text-3xl">lookup user</h1>
+                </div>
             </div>
             <div class="w-1/2 bg-purple-800 rounded-lg p-4">
-                <div class="flex flex-row items-center w-full justify-between">
+                <div class="flex flex-row items-center w-full justify-center">
+                    <h1 class="text-3xl">lock in</h1>
+                </div>
+                <div class="flex flex-row items-center w-full justify-between rounded-xl border-2 border-white p-2 mt-2">
                     <h3 class="text-xl">Focus Timer (1 hr)</h3>
                     <button class="bg-some-accent rounded p-1.5 ml-2 hover:underline" onclick="pywebview.api.focusTime()">Start</button>
+                </div>
+                <div class="flex flex-row items-center w-full justify-between rounded-xl border-2 border-white p-2 mt-2">
+                    <h3 class="text-xl">Focus Timer (2 hr)</h3>
+                    <button class="bg-some-accent rounded p-1.5 ml-2 hover:underline" onclick="pywebview.api.focusTime2()">Start</button>
                 </div>
             </div>
         </div>

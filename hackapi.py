@@ -3,8 +3,6 @@ import requests
 import base64
 import os
 import iniconfig
-import datetime
-import zoneinfo
 
 class DoubloonAPIResponse:
     def __init__(self, response):
@@ -39,28 +37,33 @@ def get_username():
     uname = uname.split("</a>")[0]
     return uname
 
-def get_userinfo():
+def get_userinfo(user = "current"):
     # print("Getting user info")
-    res = requests.get("https://waka.hackclub.com/api/compat/wakatime/v1/users/current", headers={"Authorization": get_basic_auth(), "User-Agent": "Quartermaster/1.0.0"})
+    res = requests.get(f"https://waka.hackclub.com/api/compat/wakatime/v1/users/{user}", headers={"Authorization": get_basic_auth(), "User-Agent": "Quartermaster/1.0.0"})
     res = res.json()
     return WakaAPIResponse_Users(res["data"])
 
 def get_doubloons(slackid):
     print(f"Getting doubloons for {slackid}")
     res = requests.get(f"https://doubloons.cyteon.hackclub.app/api/v1/search?id={slackid}")
-    res = res.json()
     try:
-        assert res["error"] == "User not found"
-    except KeyError:
-        pass
-    return DoubloonAPIResponse(res["user"])
+        res = res.json()
+        try:
+            assert res["error"] == "User not found"
+        except KeyError:
+            pass
+        return DoubloonAPIResponse(res["user"])
+    except:
+        print(res) # this api call randomly errors so much :sob:
 
 def get_total_waka():
     res = requests.get("https://waka.hackclub.com/api/users/current/statusbar/today", headers={"Authorization": get_basic_auth(), "User-Agent": "Quartermaster/1.0.0"})
+    if res.status_code != 200:
+        return None
     res = res.json()
     return int(res["data"]["grand_total"]["total_seconds"])
  
 
-if __name__ == "__main__":
-    print(get_total_waka())
+# if __name__ == "__main__":
+#     print(get_total_waka())
     
