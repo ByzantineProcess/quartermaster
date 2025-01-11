@@ -1,3 +1,4 @@
+import json
 import webview
 import time
 import hackapi
@@ -35,6 +36,7 @@ class WindowApi:
         self.focus_start_time = 0
         self.wtt = WakaTimeTracker()
         self.hacking = False
+        self.currently_running_wakaspy = False
     
     def setup_homepage_uname(self):
         un = hackapi.get_username()
@@ -76,6 +78,12 @@ class WindowApi:
         self.focus_start_time = time.time()
         self.titlebar = f"Focus timer: {self.focus_minutes} minutes"
     
+    def focusTime2(self):
+        self.hacking = True
+        self.focus_minutes = 120
+        self.focus_start_time = time.time()
+        self.titlebar = f"Focus timer: {self.focus_minutes} minutes"
+    
     def motivation(self):
         notif = notifypy.Notify()
         notif.title = "Quartermaster"
@@ -92,7 +100,16 @@ class WindowApi:
         notif.icon = "sailboat.png"
         notif.send()
 
+    def wakaspy(self, formfield:str, slackid_or_not:bool):
+        if slackid_or_not:
+            # it's a slackid
+            res = hackapi.wakaspy(slackid=formfield)
+        else:
+            # it's a username
+            res = hackapi.wakaspy(uname=formfield)
+        return json.dumps(res.to_dict())
+
 if __name__ == '__main__':
     js_api = WindowApi()
-    w = webview.create_window('Quartermaster 🏴‍☠️⛵', url="ui/index.html", js_api=js_api, hidden=False, width=1100, height=700, frameless=True, easy_drag=False)
+    w = webview.create_window('Quartermaster 🏴‍☠️⛵', url="ui/index.html", js_api=js_api, hidden=False, width=1100, height=500, frameless=True, easy_drag=False)
     webview.start()

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Pirata+One&display=swap" rel="stylesheet">
     <!-- <script src="showtime/showtime.js"></script> -->
-    <script src="devtools/devtools.js"></script>
+    <!-- <script src="devtools/devtools.js"></script> -->
     <script src="index.js"></script>
     <link rel="stylesheet" href="tw.css">
 </head>
@@ -42,6 +42,39 @@
             <div class="w-1/2 bg-purple-700 rounded-lg p-4">
                 <div class="flex flex-row items-center w-full justify-center">
                     <h1 class="text-3xl">lookup user</h1>
+                </div>
+                <div>
+                    <input type="text" class="w-full rounded-xl border-2 border-white text-black p-2 mt-2" id="lookupUser" placeholder="username or slackid"/>
+                    <div class="flex flex-row items-center w-full justify-center">
+                        <p class="mt-2">this is a: </p>
+                        <select name="uname-slackid" id="wakaspy-type" class="text-black rounded-lg p-1.5 mt-2 mr-2 ml-2">
+                            <option value="1" class="text-black">username</option>
+                            <option value="2" class="text-black">slackid</option>
+                        </select>
+                        <button class="bg-some-accent rounded p-1.5 mt-2 hover:underline" onclick="lookupUser()">Lookup</button>
+                        
+                    </div>
+                    <div class="flex flex-row items-center w-full justify-center mt-4">
+                        <div class="w-3/4 h-full bg-purple-600 rounded-lg hidden" id="wakaspy-container">
+                            <h2 class="pl-2 pt-2 pb-1">user info:</h2>
+                            <div class="flex flex-row items-center w-full justify-between">
+                                <div class="pl-2 pb-2 flex flex-col">
+                                    <h1 id="wakaspy-username" class="text-xl">n/a</h1>
+                                    <sup class="text-gray-400 mt-1 text-xs" id="wakaspy-slackid">(slackid unavailable)</sup>
+                                </div>
+                                <div class="flex flex-col items-center mr-2 -mt-2">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-sm" id="wakaspy-dabloons">1mil</h2>
+                                        <img class="ml-2" src="https://highseas.hackclub.com/doubloon.svg" alt="" width="16" height="16"/>
+                                    </div>
+                                    <div class="flex flex-row items-center ">
+                                        <h2 class="text-sm" id="wakaspy-time">1hr 32min</h2>
+                                    </div>
+                                    <sub class="text-gray-400 pb-2 text-xs">(last 7 days)</sub>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="w-1/2 bg-purple-800 rounded-lg p-4">

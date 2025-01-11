@@ -28,3 +28,29 @@ window.addEventListener('pywebviewready', async () => {
     document.getElementById('doubloonCount').textContent = doubloons
     
 });
+
+async function lookupUser() {
+    let wakaspyType = document.getElementById('wakaspy-type').value;
+    let val = document.getElementById('lookupUser').value;
+    let res;
+    if (wakaspyType == 1) {
+        res = await pywebview.api.wakaspy(val, false);
+    }
+    else if (wakaspyType == 2) {
+        res = await pywebview.api.wakaspy(val, true);
+    };
+    let jres = JSON.parse(res);
+    document.getElementById('wakaspy-container').style.display = 'block';
+    if (jres.uname != null) {
+        document.getElementById('wakaspy-username').textContent = jres.uname;
+    }
+    if (jres.doubloons != null) {
+        document.getElementById('wakaspy-dabloons').textContent = jres.doubloons;
+    }
+    if (jres.waka != null) {
+        document.getElementById('wakaspy-time').textContent = jres.waka;
+    }
+    if (jres.sid != null) {
+        document.getElementById('wakaspy-slackid').textContent = jres.sid;
+    }
+}

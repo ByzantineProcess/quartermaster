@@ -1,6 +1,5 @@
 import random
 
-
 phrases = [
     "Don't give up your hour now! You're so close to finishing!",
     "Keep hacking! Stick to your hour!",
