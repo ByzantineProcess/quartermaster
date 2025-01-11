@@ -16,9 +16,9 @@ High Seas helper desktop client
 - pywebview (as GUI lib/helper)
 
 ## Running locally
-**Windows users: check releases section**
+**Windows users: check releases section.** The build can trip some antiviruses, if you're worried (i don't blame you!) running from source is not hard.
 
-Otherwise, ensure your python env of choice has `requests pywebview notifypy iniconfig` installed, then just run main.py
+Ensure your python env of choice has `requests pywebview notifypy iniconfig` installed, then just run main.py
 
 Linux users: pywebview may need some extra packages related to Qt, check [the docs](https://pywebview.flowrl.com/guide/installation.html#linux) for instructions
 
